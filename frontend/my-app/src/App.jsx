@@ -20,7 +20,7 @@ function App() {
 
   const fetchChats = async () => {
     try {
-      const response = await axios.get(`${API_URL}/chat/history`);
+      const response = await axios.get(`${API_URL}/api/chat/history`);
       setChats(response.data);
     } catch (error) {
       console.error("Error fetching chats:", error);
@@ -94,7 +94,7 @@ function App() {
   const deleteChat = async (chatId, e) => {
     e.stopPropagation();
     try {
-      await axios.delete(`${API_URL}/chat/${chatId}`);
+      await axios.delete(`${API_URL}/api/chat/${chatId}`);
       fetchChats();
       if (currentChat?._id === chatId) {
         newChat();
