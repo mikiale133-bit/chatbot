@@ -37,7 +37,7 @@ function App() {
 
   const loadChat = async (chatId) => {
     try {
-      const response = await axios.get(`${API_URL}/chat/${chatId}`);
+      const response = await axios.get(`${API_URL}/api/chat/${chatId}`);
       setCurrentChat(response.data);
       setMessages(response.data.messages);
     } catch (error) {
@@ -63,7 +63,7 @@ function App() {
     ]);
 
     try {
-      const response = await axios.post(`${API_URL}/chat/message`, {
+      const response = await axios.post(`${API_URL}/api/chat/message`, {
         message: userMessage,
         chatId: currentChat?._id,
       });
