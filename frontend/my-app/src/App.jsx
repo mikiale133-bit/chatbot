@@ -11,7 +11,7 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -138,11 +138,6 @@ function App() {
             <Plus size={18} />
             New Chat
           </button>
-
-          {/* Mobile Close Button */}
-          <button onClick={() => setSidebarOpen(false)} className="p-1.5 hover:bg-gray-100 rounded-md sm:hidden text-gray-500">
-            <X size={18} />
-          </button>
         </div>
 
         <div className="flex-1 overflow-y-auto">
@@ -193,9 +188,9 @@ function App() {
             {messages.map((message, index) => {
               const isUser = message.role === "user";
               return (
-                <div key={index} className={`flex gap-3 w-full ${isUser ? "justify-end" : "justify-start"}`}>
+                <div key={index} className={`flex gap-3 ${isUser ? "justify-end" : "justify-start"}`}>
                   <div
-                    className={`rounded-xl px-4 py-2.5 border transition-all w-full
+                    className={`rounded-xl px-4 py-2.5 border transition-all
                       ${isUser ? "group bg-gray-100 border-blue-500 max-w-[85%] sm:max-w-[70%]" : "bg-white text-gray-800 border-gray-300 max-w-full"}`}
                   >
                     {/* Markdown Renderer with proper text wraps */}
