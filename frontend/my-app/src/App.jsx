@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { Send, MessageCircle, Menu, Plus, Trash2, Bot, User, Loader2 } from "lucide-react";
+import { Send, MessageCircle, Menu, Plus, Trash2, Bot, Loader2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://chatbot-backend-w9cw.onrender.com";
 
 function App() {
   const [chats, setChats] = useState([]);
