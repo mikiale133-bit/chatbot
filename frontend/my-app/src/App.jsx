@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { Send, MessageCircle, Menu, Plus, Trash2, Bot, Loader2, X } from "lucide-react";
+import { Send, MessageCircle, Menu, Plus, Trash2, Bot, Loader2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
 const API_URL = "http://localhost:5000/api";
@@ -150,7 +150,7 @@ function App() {
               }`}
             >
               <div className="flex items-center gap-2 flex-1 min-w-0">
-                <MessageCircle size={16} className="text-gray-500 flex-shrink-0" />
+                <MessageCircle size={16} className="text-gray-500 shrink-0" />
                 <span className="text-sm truncate">{chat.messages[0]?.content.substring(0, 30) || "New Chat"}</span>
               </div>
               <button onClick={(e) => deleteChat(chat._id, e)} className="text-gray-400 hover:text-red-500 transition-colors">
@@ -164,9 +164,13 @@ function App() {
       {/* Main Chat Area */}
       <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
         {/* Header */}
-        <div className="bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 flex-shrink-0">
+        <div className="blur-2xl border-b border-gray-200 px-4 py-3 flex items-center gap-3 shrink-0">
           <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-            <Menu size={20} />
+            <div className="flex gap-1 flex-col">
+              <span className="w-4 h-2 bg-black"></span>
+              <span className="w-4 h-2 bg-black"></span>
+              <span className="w-2 h-2 bg-black"></span>
+            </div>
           </button>
           <div className="flex items-center gap-2">
             <Bot size={24} className="text-blue-500" />
@@ -207,7 +211,7 @@ function App() {
 
             {isLoading && (
               <div className="flex gap-3 justify-start">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center">
                     <Bot size={16} className="text-white" />
                   </div>
@@ -224,7 +228,7 @@ function App() {
         </div>
 
         {/* Input Area */}
-        <div className="bg-white border-t border-gray-200 p-4 flex-shrink-0">
+        <div className="bg-white border-t border-gray-200 p-4 shrink-0">
           <div className="max-w-3xl mx-auto">
             <div className="flex gap-2 items-end bg-white border border-gray-300 rounded-xl p-1 focus-within:ring-2 focus-within:ring-gray-500/20 focus-within:border-black transition-all">
               <textarea
@@ -239,7 +243,7 @@ function App() {
               <button
                 onClick={sendMessage}
                 disabled={isLoading || !inputMessage.trim()}
-                className="bg-black text-white w-10 h-10 rounded-lg flex items-center justify-center hover:bg-gray-800 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 mb-0.5 mr-0.5"
+                className="bg-black text-white w-10 h-10 rounded-lg flex items-center justify-center hover:bg-gray-800 transition-all disabled:opacity-40 disabled:cursor-not-allowed shrink-0 mb-0.5 mr-0.5"
               >
                 <Send size={16} />
               </button>
