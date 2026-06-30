@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { Send, MessageCircle, Menu, Plus, Trash2, Bot, Loader2 } from "lucide-react";
+import { Send, MessageCircle, Plus, Trash2, Bot, Loader2, X } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://chatbot-backend-w9cw.onrender.com/api";
 
 function App() {
   const [chats, setChats] = useState([]);
@@ -130,14 +130,16 @@ function App() {
           fixed inset-y-0 left-0 z-30 sm:relative sm:z-auto
           ${sidebarOpen ? "w-64 translate-x-0" : "w-0 -translate-x-full sm:translate-x-0 overflow-hidden border-r-0"}`}
       >
-        <div className="p-4 border-b border-gray-200 flex items-center justify-between gap-2">
+        <div className="p-4 relative border-b border-gray-200  items-center justify-between gap-2">
           <button
             onClick={newChat}
-            className="flex-1 flex items-center justify-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+            className="flex-1 flex items-center justify-center gap-2 bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition-colors"
           >
             <Plus size={18} />
             New Chat
           </button>
+
+          <X className="absolute top-5 right-5" onClick={() => setSidebarOpen(false)} />
         </div>
 
         <div className="flex-1 overflow-y-auto">
@@ -164,12 +166,12 @@ function App() {
       {/* Main Chat Area */}
       <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
         {/* Header */}
-        <div className="blur-2xl border-b border-gray-200 px-4 py-3 flex items-center gap-3 shrink-0">
+        <div className="border-b border-gray-200 px-4 py-3 flex items-center gap-3 shrink-0">
           <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
             <div className="flex gap-1 flex-col">
-              <span className="w-4 h-2 bg-black"></span>
-              <span className="w-4 h-2 bg-black"></span>
-              <span className="w-2 h-2 bg-black"></span>
+              <span className="w-7 h-0.5 bg-black"></span>
+              <span className="w-7 h-0.5 bg-black"></span>
+              <span className="w-5 h-0.5 bg-black"></span>
             </div>
           </button>
           <div className="flex items-center gap-2">
