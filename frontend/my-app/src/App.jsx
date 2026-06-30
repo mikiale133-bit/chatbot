@@ -4,6 +4,7 @@ import { Send, MessageCircle, Plus, Trash2, Bot, Loader2, X } from "lucide-react
 import ReactMarkdown from "react-markdown";
 
 const API_URL = "https://chatbot-backend-w9cw.onrender.com/api";
+// const API_URL = "http://localhost:5000/api";
 
 function App() {
   const [chats, setChats] = useState([]);
@@ -133,13 +134,13 @@ function App() {
         <div className="p-4 relative border-b border-gray-200  items-center justify-between gap-2">
           <button
             onClick={newChat}
-            className="flex-1 flex items-center justify-center gap-2 bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition-colors"
+            className="flex-1 flex items-center justify-center gap-0 bg-black text-white px-3 py-1 hover:bg-gray-700 transition-colors"
           >
             <Plus size={18} />
             New Chat
           </button>
 
-          <X className="absolute top-5 right-5" onClick={() => setSidebarOpen(false)} />
+          <X className="absolute top-5 right-5 sm:hidden" onClick={() => setSidebarOpen(false)} />
         </div>
 
         <div className="flex-1 overflow-y-auto">

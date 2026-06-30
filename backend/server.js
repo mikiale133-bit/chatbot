@@ -2,8 +2,11 @@ import express from "express";
 import axios from "axios";
 import "dotenv/config";
 import cors from "cors";
-import chatRouter from "./routes/chatRoutes.js";
 import mongoose from "mongoose";
+
+// Routes
+import chatRouter from "./routes/chatRoutes.js";
+import usersRouter from "./routes/userRoutes.js";
 //import connectDB from "./config/db.js";
 
 // dotenv.config();
@@ -24,6 +27,7 @@ const PORT = process.env.PORT || 5000;
 
 // Chat route
 app.use("/api/chat", chatRouter);
+app.use("/api/users", usersRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on  http://localhost:${PORT}`);
